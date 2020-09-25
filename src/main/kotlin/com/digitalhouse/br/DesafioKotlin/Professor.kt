@@ -1,4 +1,4 @@
 package com.digitalhouse.br.DesafioKotlin
 
-class Professor {
+open class Professor(val nome: String, val sobrenome: String, val tempoCasa: Int, val codProfessor: Int) {
 }

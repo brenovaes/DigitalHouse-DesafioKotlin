@@ -1,4 +1,6 @@
 package com.digitalhouse.br.DesafioKotlin
 
-class Matricula {
+import java.util.*
+
+class Matricula(val aluno: Aluno, val curso: Curso, val data: Date) {
 }
