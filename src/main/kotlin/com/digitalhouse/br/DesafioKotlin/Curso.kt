@@ -4,8 +4,8 @@ class Curso(val nome: String, val codCurso: Int, val qtdMaxima: Int) {
 
     var listaAlunosMatriculados = mutableListOf<Aluno>()
 
-    var professorTitular = null
-    var professorAdjunto = null
+    lateinit var professorTitular: Any
+    lateinit var professorAdjunto: Any
 
     fun adicionarUmAluno(umAluno: Aluno) : Boolean {
         return if (listaAlunosMatriculados.size < this.qtdMaxima) {

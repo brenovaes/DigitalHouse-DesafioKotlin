@@ -25,7 +25,7 @@ class DigitalHouseManager() {
         }
     }
 
-    fun registrarProfessorAdjunto(nome: String, sobrenome: String,codigoProfessor: Int, quantidadeDeHoras: Int){
+    fun registrarProfessorAdjunto(nome: String, sobrenome: String, codigoProfessor: Int, quantidadeDeHoras: Int){
         val professor = ProfessorAdjunto(nome, sobrenome, 0, codigoProfessor, quantidadeDeHoras)
         if (!listaProfessores.contains(professor)){
             listaProfessores.add(professor)
@@ -76,13 +76,13 @@ class DigitalHouseManager() {
             if (professor.codProfessor == codigoProfessorTitular){
                 for (curso in listaCursos){
                     if (curso.codCurso == codigoCurso){
-
+                        curso.professorTitular = professor
                     }
                 }
             } else if (professor.codProfessor == codigoProfessorAdjunto){
                 for (curso in listaCursos){
                     if (curso.codCurso == codigoCurso){
-                        
+                        curso.professorAdjunto = professor
                     }
                 }
             }
