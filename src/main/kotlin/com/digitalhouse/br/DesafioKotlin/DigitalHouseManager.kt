@@ -55,19 +55,30 @@ class DigitalHouseManager() {
     }
 
     fun matricularAluno(codigoAluno: Int, codigoCurso:  Int){
+        lateinit var cursoObj: Curso
+        lateinit var alunoObj: Aluno
+        var existeCurso: Boolean = false
+        var existeAluno: Boolean = false
+
         for (curso in listaCursos){
             if (curso.codCurso == codigoCurso){
-                for (aluno in listaAlunos){
-                    if (aluno.codALuno == codigoAluno){
-                        if (curso.adicionarUmAluno(aluno)){
-                            listaMatriculas.add(Matricula(aluno, curso, Date()))
-                            println("Matrícula realizada com sucesso!")
-                        } else {
-                            println("A matrícula não pôde ser realizada por falta de vagas")
-                        }
-                    }
-                }
+                cursoObj = curso
+                existeCurso = true
             }
+        }
+
+        for (aluno in listaAlunos){
+            if (aluno.codALuno == codigoAluno){
+                alunoObj = aluno
+                existeAluno = true
+            }
+        }
+
+        if (cursoObj.adicionarUmAluno(alunoObj) && existeCurso && existeAluno){
+            listaMatriculas.add(Matricula(alunoObj, cursoObj, Date()))
+            println("Matrícula realizada com sucesso!")
+        } else {
+            println("A matrícula não pôde ser realizada por falta de vagas")
         }
     }
 
